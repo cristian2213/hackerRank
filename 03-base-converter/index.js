@@ -25,3 +25,4 @@ function baseConverter(number, base) {
 console.log(baseConverter(1253, 2)); // Binary => 10011100101
 console.log(baseConverter(1253, 8)); // Octagonal => 2345
 console.log(baseConverter(1253, 16)); // Hexadecimal => 4E5
+console.log(baseConverter(1253034, 32)); // Hexadecimal => 167LA
