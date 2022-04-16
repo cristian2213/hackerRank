@@ -28,3 +28,37 @@ function gradingStudents(grades) {
 
 const res = gradingStudents([73, 67, 38, 33]); // [75, 67, 40, 33];
 console.log(res);
+
+function gradingStudents2(grades) {
+  const totalGrades = grades.length;
+  const mappedGrades = [];
+
+  for (let i = 0; i < totalGrades; i++) {
+    const grade = grades[i];
+
+    if (grade < 38) {
+      mappedGrades[i] = grade;
+      continue;
+    }
+
+    const remainder = grade % 5;
+    let m5;
+
+    if (remainder === 0) m5 = grade + 5;
+    else if (remainder === 1) m5 = grade + 4;
+    else if (remainder === 2) m5 = grade + 3;
+    else if (remainder === 3) m5 = grade + 2;
+    else m5 = grade + 1;
+
+    const diff = Math.abs(grade - m5);
+    if (diff < 3) {
+      mappedGrades[i] = m5;
+      continue;
+    }
+    mappedGrades[i] = grade;
+  }
+  return mappedGrades;
+}
+
+const res2 = gradingStudents2([73, 67, 38, 33]); // [75, 67, 40, 33];
+console.log(res2);
