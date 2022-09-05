@@ -1,17 +1,17 @@
-// @ts-check
-
-export default class Queue {
+export class Queue {
   constructor() {
     this.count = 0;
     this.lowestCount = 0;
     this.items = {};
   }
 
+  // This method adds a new element at the back of the queue.
   enqueue(element) {
     this.items[this.count] = element;
     this.count++;
   }
 
+  // This method removes the first element from the queue (the itemthat is in the front of the queue). It also returns the removed element.
   dequeue() {
     if (this.isEmpty()) {
       return undefined;
