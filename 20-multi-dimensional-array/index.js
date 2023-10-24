@@ -37,4 +37,4 @@ console.log(cubeMatrix);
     [4, 5, 6],
   ],
 ];
-/*
+*/
