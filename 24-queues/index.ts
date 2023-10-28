@@ -71,7 +71,12 @@ class Queue implements QueueStructure {
   toString() {
     if (this.isEmpty()) return undefined;
 
-    return this.items.toString();
+    let chain = "";
+    for (let i = this.lowestCount; i < this.count; i++) {
+      chain += `${this.items[i]}${i + 1 === this.count ? "" : ","}`;
+    }
+
+    return chain;
   }
 
   getQueue() {
@@ -82,12 +87,13 @@ class Queue implements QueueStructure {
 const StringQueue = new Queue();
 
 StringQueue.enqueue("a", "b", "c", "d", "e", "f", "g", "h", "i");
-// console.log(StringQueue.items); // { '0': 'a', '1': 'b', '2': 'c', '3': 'd' }
-
 StringQueue.dequeue();
-// console.log(StringQueue.items); // { '1': 'b', '2': 'c', '3': 'd' }
 
 console.log(StringQueue.peek()); // b
-console.log(StringQueue.getQueue()); // { '1': 'b', '2': 'c', '3': 'd' }
+
+console.log(StringQueue.getQueue());
+console.log(StringQueue.toString());
+StringQueue.dequeue();
+StringQueue.dequeue();
 StringQueue.clear();
-console.log(StringQueue.getQueue()); // {}
+console.log(StringQueue.toString());

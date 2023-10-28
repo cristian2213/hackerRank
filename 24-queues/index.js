@@ -51,7 +51,11 @@ var Queue = /** @class */ (function () {
     Queue.prototype.toString = function () {
         if (this.isEmpty())
             return undefined;
-        return this.items.toString();
+        var chain = "";
+        for (var i = this.lowestCount; i < this.count; i++) {
+            chain += "".concat(this.items[i]).concat(i + 1 === this.count ? "" : ",");
+        }
+        return chain;
     };
     Queue.prototype.getQueue = function () {
         return this.items;
@@ -60,10 +64,12 @@ var Queue = /** @class */ (function () {
 }());
 var StringQueue = new Queue();
 StringQueue.enqueue("a", "b", "c", "d", "e", "f", "g", "h", "i");
-// console.log(StringQueue.items); // { '0': 'a', '1': 'b', '2': 'c', '3': 'd' }
 StringQueue.dequeue();
-// console.log(StringQueue.items); // { '1': 'b', '2': 'c', '3': 'd' }
-console.log(StringQueue.peek()); // b
+// console.log(StringQueue.peek()); // b
 console.log(StringQueue.getQueue()); // { '1': 'b', '2': 'c', '3': 'd' }
+console.log(StringQueue.toString()); // { '1': 'b', '2': 'c', '3': 'd' }
+StringQueue.dequeue();
+StringQueue.dequeue();
 StringQueue.clear();
 console.log(StringQueue.getQueue()); // {}
+console.log(StringQueue.toString());
