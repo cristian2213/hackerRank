@@ -1,6 +1,6 @@
 interface QueueStructure {
   enqueue(item: any): void;
-  dequeue(index: any): void;
+  dequeue(index: any): any;
   peek(): void;
   isEmpty(): boolean;
   size(): number;
@@ -34,9 +34,7 @@ class Queue implements QueueStructure {
 
   // This method deletes the first element from the queue.
   dequeue() {
-    if (this.isEmpty()) {
-      return undefined;
-    }
+    if (this.isEmpty()) return undefined;
 
     const target = this.items[this.lowestCount];
     delete this.items[this.lowestCount];
@@ -69,16 +67,14 @@ class Queue implements QueueStructure {
   }
 
   toString() {
-    // if (this.isEmpty()) return undefined;
+    if (this.isEmpty()) return undefined;
 
-    // let chain = "";
-    // for (let i = this.lowestCount; i < this.count; i++) {
-    //   chain += `${this.items[i]}${i + 1 === this.count ? "" : ","}`;
-    // }
+    let chain = "";
+    for (let i = this.lowestCount; i < this.count; i++) {
+      chain += `${this.items[i]}${i + 1 === this.count ? "" : ","}`;
+    }
 
-    // return chain;
-
-    return JSON.stringify(this.items);
+    return chain;
   }
 
   getQueue() {
