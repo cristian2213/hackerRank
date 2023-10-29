@@ -22,7 +22,7 @@ class MergerQueueStack extends Queue implements IQueueStackMethods {
 
     case1: Evaluates when the queue is empty.
 
-    case2: Evaluates when one queue item has been deleted and adds the new item in the lowest position (0).
+    case2: Evaluates when the first queue item has been deleted and adds the new item in the lowest position (0).
 
     case3: When the queue is not empty, so it must add the new item at the front of the queue and reposition the old first item  to the next position - ['a','b'] => [empty,'a', 'b'].
    */
