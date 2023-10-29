@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Queue = /** @class */ (function () {
     function Queue() {
         this.count = 0;
@@ -65,11 +67,11 @@ var Queue = /** @class */ (function () {
 var StringQueue = new Queue();
 StringQueue.enqueue("a", "b", "c", "d", "e", "f", "g", "h", "i");
 StringQueue.dequeue();
-// console.log(StringQueue.peek()); // b
-console.log(StringQueue.getQueue()); // { '1': 'b', '2': 'c', '3': 'd' }
-console.log(StringQueue.toString()); // { '1': 'b', '2': 'c', '3': 'd' }
+console.log(StringQueue.peek()); // b
+console.log(StringQueue.getQueue());
+console.log(StringQueue.toString());
 StringQueue.dequeue();
 StringQueue.dequeue();
 StringQueue.clear();
-console.log(StringQueue.getQueue()); // {}
 console.log(StringQueue.toString());
+exports.default = Queue;

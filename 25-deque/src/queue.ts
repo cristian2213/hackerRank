@@ -69,33 +69,21 @@ class Queue implements QueueStructure {
   }
 
   toString() {
-    if (this.isEmpty()) return undefined;
+    // if (this.isEmpty()) return undefined;
 
-    let chain = "";
-    for (let i = this.lowestCount; i < this.count; i++) {
-      chain += `${this.items[i]}${i + 1 === this.count ? "" : ","}`;
-    }
+    // let chain = "";
+    // for (let i = this.lowestCount; i < this.count; i++) {
+    //   chain += `${this.items[i]}${i + 1 === this.count ? "" : ","}`;
+    // }
 
-    return chain;
+    // return chain;
+
+    return JSON.stringify(this.items);
   }
 
   getQueue() {
     return this.items;
   }
 }
-
-const StringQueue = new Queue();
-
-StringQueue.enqueue("a", "b", "c", "d", "e", "f", "g", "h", "i");
-StringQueue.dequeue();
-
-console.log(StringQueue.peek()); // b
-
-console.log(StringQueue.getQueue());
-console.log(StringQueue.toString());
-StringQueue.dequeue();
-StringQueue.dequeue();
-StringQueue.clear();
-console.log(StringQueue.toString());
 
 export default Queue;
