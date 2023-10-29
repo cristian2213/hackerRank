@@ -15,14 +15,6 @@ class MergerQueueStack extends Queue implements IQueueStackMethods {
 
   constructor() {
     super();
-
-    // Override properties
-    // this.items = {
-    //   1: "b",
-    //   2: "c",
-    // };
-    // this.count = 2;
-    // this.lowestCount = 0;
   }
 
   /*
