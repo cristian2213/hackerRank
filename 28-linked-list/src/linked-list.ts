@@ -2,7 +2,7 @@ function defaultEquals(a, b) {
   return a === b;
 }
 
-interface ILinkedList {
+/* interface ILinkedList {
   push(element): boolean;
   insert(element, position): boolean;
   getElementAt(index): any;
@@ -13,11 +13,11 @@ interface ILinkedList {
   size(): number;
   getHead(): Object;
   toString(): string;
-}
+} */
 
 class ListNode {
   public element: any;
-  public next: ListNode;
+  public next: ListNode | undefined;
 
   constructor(element: any) {
     this.element = element;
@@ -25,9 +25,9 @@ class ListNode {
   }
 }
 
-class LinkedList implements ILinkedList {
+class LinkedList {
   protected count: number;
-  private head: undefined | any;
+  protected head: undefined | any;
   protected equalsFn: Function;
 
   constructor(equalsFn = defaultEquals) {
@@ -187,15 +187,17 @@ class LinkedList implements ILinkedList {
 
 const list = new LinkedList();
 
-list.push(5); // ListNode { element: 15, next: undefined }
-list.push(10); // ListNode {element: 15, next: ListNode { element: 10, next: undefined }}
+// list.push(5); // ListNode { element: 15, next: undefined }
+// list.push(10); // ListNode {element: 15, next: ListNode { element: 10, next: undefined }}
 // list.push(15);
 // list.push(20);
 // list.push(25);
 
 // console.log("removeAt:", list.removeAt(1)); // {element: 10, next: ListNode}
 // console.log("getElementAt:", list.getElementAt(0)); // {element: 5, next: ListNode}
-list.insert(30, 2);
+// list.insert(30, 2);
 // console.log("indexOf:", list.indexOf(30));
 // console.log("remove:", list.remove(30));
-console.log(list.toString());
+// console.log(list.toString());
+
+export { LinkedList, ListNode, defaultEquals };
