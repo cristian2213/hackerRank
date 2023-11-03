@@ -84,9 +84,10 @@ class DoublyLinkedList extends LinkedList {
 }
 
 const dLinkedList = new DoublyLinkedList();
-dLinkedList.insert("a", 0);
-dLinkedList.insert("b", 1);
-dLinkedList.insert("d", 2);
-dLinkedList.insert("c", 2);
-console.log(dLinkedList.toString()); // a,b,c,d
-console.log(dLinkedList.removeAt(3)); // d
+// dLinkedList.insert("a", 0);
+// dLinkedList.insert("b", 1);
+// dLinkedList.insert("d", 2);
+// dLinkedList.insert("c", 2);
+// console.log(dLinkedList.toString()); // a,b,c,d
+// console.log(dLinkedList.removeAt(3)); // d
+export { DoubleNode, DoublyLinkedList };
